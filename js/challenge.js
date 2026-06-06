@@ -226,7 +226,7 @@
             // Check win conditions
             const level = getAllLevels()[currentLevelIdx];
             const atTarget = level.target && beeState.x === level.target.x && beeState.y === level.target.y;
-            const allFlowers = levelFlowers.length === 0 || collectedFlowers.size === levelFlowers.size;
+            const allFlowers = levelFlowers.length === 0 || collectedFlowers.size === levelFlowers.length;
 
             if (atTarget && allFlowers) {
                 // Success!
