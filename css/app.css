@@ -402,6 +402,19 @@ header {
 .queue-count { font-size: 0.8rem; color: #9E9E9E; margin-top: 6px; font-weight: 700; }
 
 /* ───── IMPORT/EXPORT ───── */
+.panel-program {
+    display: grid;
+    grid-template-areas:
+        "title"
+        "queue"
+        "count"
+        "io";
+}
+.panel-program .panel-title { grid-area: title; }
+.panel-program .queue-area { grid-area: queue; }
+.panel-program .queue-count { grid-area: count; }
+.panel-program .io-row { grid-area: io; }
+
 .io-row { display: flex; gap: 8px; margin-top: 8px; }
 .io-btn {
     flex: 1;
@@ -415,6 +428,10 @@ header {
     cursor: pointer;
     transition: all 0.15s;
     text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 }
 .io-btn:hover { background: #F5F5F5; }
 
@@ -975,6 +992,30 @@ button:focus-visible {
     }
     .modal-btns { flex-direction: column; width: 100%; }
 
-    .io-row { flex-direction: column; }
-    .io-btn { min-height: 44px; }
+    .panel-program {
+        grid-template-areas:
+            "title"
+            "queue"
+            "count";
+    }
+    .panel-program .panel-title { margin-bottom: 6px; }
+    .panel-program .io-row {
+        grid-area: title;
+        justify-self: end;
+        align-self: center;
+        margin-top: 0;
+        gap: 6px;
+    }
+    .io-btn {
+        flex: none;
+        min-width: 36px;
+        min-height: 36px;
+        padding: 6px 8px;
+        font-size: 0.75rem;
+        border-width: 2px;
+        border-radius: 8px;
+        line-height: 1;
+    }
+    .io-btn .io-icon { font-size: 1.1rem; }
+    .io-btn .io-label { display: none; }
 }
