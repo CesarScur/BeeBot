@@ -11,7 +11,8 @@ const BUILT_IN_LEVELS = [
         target: {x:3, y:7},
         flowers: [],
         obstacles: [],
-        collectWord: null
+        collectWord: null,
+        starLimits: { three: 3, two: 5 }
     },
     {
         id: 2,
@@ -23,7 +24,8 @@ const BUILT_IN_LEVELS = [
         obstacles: [
             {x:4,y:7},{x:4,y:6},{x:4,y:5},{x:3,y:5},{x:2,y:5},{x:1,y:5},{x:1,y:4},{x:1,y:3},{x:2,y:3}
         ],
-        collectWord: null
+        collectWord: null,
+        starLimits: { three: 13, two: 20 }
     },
     {
         id: 3,
@@ -33,7 +35,8 @@ const BUILT_IN_LEVELS = [
         target: {x:7, y:0},
         flowers: [{x:2,y:7},{x:4,y:5},{x:6,y:3}],
         obstacles: [],
-        collectWord: null
+        collectWord: null,
+        starLimits: { three: 17, two: 26 }
     },
     {
         id: 4,
@@ -47,7 +50,8 @@ const BUILT_IN_LEVELS = [
             {x:4,y:4},{x:4,y:3},{x:4,y:2},{x:4,y:1},
             {x:6,y:3},{x:6,y:4},{x:6,y:5},{x:6,y:6},{x:6,y:7}
         ],
-        collectWord: null
+        collectWord: null,
+        starLimits: { three: 16, two: 24 }
     },
     {
         id: 5,
@@ -57,6 +61,7 @@ const BUILT_IN_LEVELS = [
         target: {x:7, y:7},
         flowers: [{x:1,y:5},{x:3,y:3},{x:5,y:5},{x:7,y:3}],
         obstacles: [{x:2,y:7},{x:4,y:7},{x:6,y:7}],
-        collectWord: null
+        collectWord: null,
+        starLimits: { three: 24, two: 36 }
     }
 ];

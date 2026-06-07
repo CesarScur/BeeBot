@@ -232,7 +232,8 @@
                 // Success!
                 completedLevels.add(level.id);
                 const cmdCount = queue.size();
-                const stars = cmdCount <= 5 ? 3 : cmdCount <= 10 ? 2 : 1;
+                const stars = calcStars(level, cmdCount);
+                const { three, two } = getStarLimits(level);
                 levelStars[level.id] = Math.max(levelStars[level.id] || 0, stars);
                 saveProgress();
 
@@ -242,7 +243,7 @@
 
                 const levels = getAllLevels();
                 const hasNext = currentLevelIdx < levels.length - 1;
-                showModal('🎉', 'Parabéns!', `Fase completada! ${'⭐'.repeat(stars)} Você usou ${cmdCount} comandos!`, [
+                showModal('🎉', 'Parabéns!', `Fase completada! ${'⭐'.repeat(stars)} Você usou ${cmdCount} comandos! (3⭐ ≤${three}, 2⭐ ≤${two})`, [
                     hasNext ? {label:'➡ Próxima Fase', cls:'mbtn-green', action: () => { loadLevel(currentLevelIdx + 1); showChallengeGame(); }} : null,
                     {label:'🔄 Jogar Novamente', cls:'mbtn-primary', action: () => loadLevel(currentLevelIdx)},
                     {label:'🗺 Fases', cls:'mbtn-secondary', action: () => showLevelPicker()}
