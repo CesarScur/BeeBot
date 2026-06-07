@@ -1,6 +1,16 @@
 /* ============================================================
    RENDERER
    ============================================================ */
+function scrollWithinContainer(container, el) {
+    const cRect = container.getBoundingClientRect();
+    const eRect = el.getBoundingClientRect();
+    if (eRect.top < cRect.top) {
+        container.scrollTop -= cRect.top - eRect.top;
+    } else if (eRect.bottom > cRect.bottom) {
+        container.scrollTop += eRect.bottom - cRect.bottom;
+    }
+}
+
 function createRenderer(gridEl, queueEl, countEl) {
     let beeEl = null;
     let beeWrap = null;
@@ -164,9 +174,8 @@ function createRenderer(gridEl, queueEl, countEl) {
             queueEl.appendChild(el);
         });
         if (countEl) countEl.textContent = `${cmds.length} / 200 comandos`;
-        // Scroll active into view
         const activeEl = queueEl.querySelector('.active');
-        if (activeEl) activeEl.scrollIntoView({block:'nearest',behavior:'smooth'});
+        if (activeEl) scrollWithinContainer(queueEl, activeEl);
     }
 
     return { init, placeBee, beeBounce, beeError, clearCellHighlights, markTrail, markOccupied, renderObstacles, renderTarget, renderFlowers, collectFlower, clearLevel, renderQueue };
